@@ -3,7 +3,7 @@ dev:
     just lint
 
 fmt:
-    python3 -m black **/*.py
+    python3 -m ruff format **/*.py
 
 lint:
     python3 -m ruff check **/*.py
