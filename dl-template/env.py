@@ -27,9 +27,9 @@ elif os.path.exists("/root/autodl-tmp"):
     PLATFORM = "autodl"
 
 # detect device
-device = torch.device("cpu")
+DEVICE = torch.device("cpu")
 if torch.cuda.is_available():
-    device = torch.device("cuda")
+    DEVICE = torch.device("cuda")
     torch.set_float32_matmul_precision("high")
 
 cli = typer.Typer()
@@ -52,7 +52,7 @@ def show_env():
         "IN_NOTEBOOK": IN_NOTEBOOK,
         "PLATFORM": PLATFORM,
         "torch": {
-            "device": str(device),
+            "DEVICE": str(DEVICE),
             "float32_matmul_precision": torch.get_float32_matmul_precision(),
         },
         "packages": packages,
